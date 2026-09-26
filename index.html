@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veloura | Fashion Store</title>
+    <meta
+      name="description"
+      content="Veloura is a modern fashion store with curated essentials, premium basics, and trend-forward collections."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrapper">
+        <a href="index.html" class="brand" aria-label="Veloura Home">VELOURA</a>
+        <button class="menu-toggle" type="button" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+          <a href="index.html" class="active">Home</a>
+          <a href="products.html">Products</a>
+          <a href="products.html?category=all">Categories</a>
+          <a href="#about">About</a>
+          <a href="login.html">Admin/Login</a>
+        </nav>
+        <a class="nav-cta" href="products.html">Shop Now</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">New Season</p>
+            <h1>Discover Your Style</h1>
+            <p>
+              Elevate your everyday wardrobe with premium essentials designed for
+              movement, comfort, and confidence.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="products.html">Shop Collection</a>
+              <a class="btn btn-secondary" href="#about">Our Story</a>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="image-frame">
+              <img
+                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80"
+                alt="Fashion model wearing styled outfit"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <span>Featured</span>
+            <h2>Best Sellers</h2>
+          </div>
+          <div id="featured-products" class="product-grid"></div>
+        </div>
+      </section>
+
+      <section class="section muted-section">
+        <div class="container">
+          <div class="section-heading">
+            <span>Shop by</span>
+            <h2>Categories</h2>
+          </div>
+          <div id="home-categories" class="category-grid"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <span>Fresh arrivals</span>
+            <h2>Latest Collection</h2>
+          </div>
+          <div id="latest-products" class="product-grid"></div>
+        </div>
+      </section>
+
+      <section id="about" class="section brand-story">
+        <div class="container story-grid">
+          <div class="story-copy">
+            <p class="eyebrow">Our identity</p>
+            <h2>Premium essentials with modern attitude.</h2>
+            <p>
+              Veloura brings together minimal silhouettes, soft textures, and
+              timeless design. Our collections are crafted for everyday wear and
+              elevated confidence.
+            </p>
+            <p>
+              We value quality, versatility, and effortless style—so every piece
+              feels both easy and expressive.
+            </p>
+          </div>
+          <div class="story-visual">
+            <img
+              src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80"
+              alt="Fashion lifestyle portrait"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <a href="index.html" class="brand footer-brand">VELOURA</a>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="login.html">Admin</a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

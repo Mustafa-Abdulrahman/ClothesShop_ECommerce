@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Veloura Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body class="auth-page-body">
+    <header class="site-header">
+      <div class="container nav-wrapper">
+        <a href="index.html" class="brand" aria-label="Veloura Home">VELOURA</a>
+        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="login.html" class="active">Admin/Login</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="auth-page">
+      <div class="auth-card">
+        <p class="eyebrow">Admin access</p>
+        <h1>Welcome back</h1>
+
+        <form id="login-form" class="auth-form">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" placeholder="admin" required />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="••••••" required />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+
+        <p class="demo-credentials">
+          Demo credentials: username <strong>admin</strong>, password <strong>123456</strong>
+        </p>
+        <p id="login-message" class="form-message" aria-live="polite"></p>
+      </div>
+    </main>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>
