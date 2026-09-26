@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initializeAppData();
 
+  setupMobileMenu();
   setupAdminDashboard();
   renderDashboardStats();
   renderProductsTable();

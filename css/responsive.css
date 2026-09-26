@@ -1,5 +1,6 @@
 @media (max-width: 1024px) {
-  .product-grid {
+  .product-grid,
+  .feature-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
@@ -44,6 +45,8 @@
   .story-grid,
   .product-grid,
   .category-grid,
+  .feature-grid,
+  .trust-grid,
   .detail-meta-grid,
   .detail-specs {
     grid-template-columns: 1fr;
@@ -55,6 +58,10 @@
 
   .filters-panel {
     grid-template-columns: 1fr;
+  }
+
+  .hero-meta {
+    justify-content: flex-start;
   }
 
   .filter-actions {

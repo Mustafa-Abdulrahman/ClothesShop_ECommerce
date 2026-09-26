@@ -185,6 +185,23 @@ textarea {
   font-size: 1.06rem;
 }
 
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.2rem;
+  margin-top: 1.4rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.hero-meta span {
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--border);
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -209,8 +226,75 @@ textarea {
   padding: 3rem 0;
 }
 
+.trust-bar {
+  padding: 1rem 0 0;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.2rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid var(--border);
+}
+
+.trust-item strong {
+  font-size: 0.95rem;
+}
+
+.trust-item span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
 .muted-section {
   background: rgba(255, 255, 255, 0.34);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-card {
+  padding: 1.6rem 1.4rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(18, 18, 18, 0.03);
+}
+
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  margin-bottom: 0.8rem;
+  color: var(--primary);
+  background: rgba(200, 155, 117, 0.12);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.feature-card h3 {
+  margin: 0 0 0.7rem;
+  font-size: 1.2rem;
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--muted);
 }
 
 .section-heading {
@@ -389,7 +473,7 @@ textarea {
 
 .filters-panel {
   display: grid;
-  grid-template-columns: 2fr 1.2fr 1fr 1fr 1.2fr auto;
+  grid-template-columns: 1.6fr 1.2fr 1fr 1fr 1.2fr 1.1fr auto;
   align-items: end;
   gap: 1rem;
   background: rgba(255,255,255,0.55);

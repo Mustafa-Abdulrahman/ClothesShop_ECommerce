@@ -11,6 +11,7 @@ function initializeProductPage() {
   const minPriceInput = document.getElementById('min-price');
   const maxPriceInput = document.getElementById('max-price');
   const availabilityFilter = document.getElementById('availability-filter');
+  const sortProducts = document.getElementById('sort-products');
   const applyButton = document.getElementById('apply-filters');
   const clearButton = document.getElementById('clear-filters');
   const productCount = document.getElementById('product-count');
@@ -39,6 +40,7 @@ function initializeProductPage() {
     minPriceInput.value = '';
     maxPriceInput.value = '';
     availabilityFilter.value = 'all';
+    sortProducts.value = 'featured';
     renderProducts();
   });
 
@@ -47,6 +49,7 @@ function initializeProductPage() {
   minPriceInput.addEventListener('input', renderProducts);
   maxPriceInput.addEventListener('input', renderProducts);
   availabilityFilter.addEventListener('change', renderProducts);
+  sortProducts.addEventListener('change', renderProducts);
 
   function populateCategoryOptions() {
     const categories = getCategories();
@@ -67,6 +70,7 @@ function initializeProductPage() {
       minPrice: minPriceInput.value ? Number(minPriceInput.value) : 0,
       maxPrice: maxPriceInput.value ? Number(maxPriceInput.value) : Infinity,
       availability: availabilityFilter.value,
+      sort: sortProducts.value,
     };
   }
 
@@ -96,6 +100,18 @@ function initializeProductPage() {
 
     if (filters.availability === 'out-of-stock') {
       filteredProducts = filteredProducts.filter((product) => Number(product.quantity) === 0);
+    }
+
+    if (filters.sort === 'price-asc') {
+      filteredProducts = [...filteredProducts].sort((a, b) => Number(a.price) - Number(b.price));
+    }
+
+    if (filters.sort === 'price-desc') {
+      filteredProducts = [...filteredProducts].sort((a, b) => Number(b.price) - Number(a.price));
+    }
+
+    if (filters.sort === 'name-asc') {
+      filteredProducts = [...filteredProducts].sort((a, b) => a.name.localeCompare(b.name));
     }
 
     productsGrid.innerHTML = '';
