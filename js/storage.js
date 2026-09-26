@@ -1,33 +1,22 @@
-function saveData(key, data) {
-  localStorage.setItem(key, JSON.stringify(data));
-}
-
 function getData(key, fallback = []) {
-  const value = localStorage.getItem(key);
-  if (!value) return fallback;
-
-  try {
-    return JSON.parse(value);
-  } catch (error) {
-    console.warn(`Failed to parse localStorage key: ${key}`, error);
-    return fallback;
-  }
+  if (key === 'categories') return [...sampleCategories];
+  if (key === 'products') return [...sampleProducts];
+  if (key === 'admin') return { username: 'admin', password: '123456' };
+  return fallback;
 }
 
-function removeData(key) {
-  localStorage.removeItem(key);
+function saveData() {
+  return false;
+}
+
+function removeData() {
+  return false;
 }
 
 function normalizeCategoryName(name) {
   const cleanedName = String(name || '').trim();
   if (!cleanedName) return cleanedName;
-
-  const aliasMap = {
-    Juckets: 'Jackets',
-    'Denim Jacket': 'Jackets',
-  };
-
-  return aliasMap[cleanedName] || cleanedName;
+  return cleanedName === 'Juckets' ? 'Jackets' : cleanedName;
 }
 
 function getCategoryImage(name) {
@@ -40,7 +29,7 @@ function getCategoryImage(name) {
     Accessories: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=80',
   };
 
-  return imageMap[normalizeCategoryName(name)] || 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80';
+  return imageMap[normalizeCategoryName(name)] || imageMap.Jackets;
 }
 
 function getProductImageByName(name) {
@@ -53,83 +42,9 @@ function getProductImageByName(name) {
     'Leather Tote Bag': 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=80',
   };
 
-  return imageMap[String(name || '')] || 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80';
-}
-
-function normalizeCategory(category) {
-  const safeCategory = { ...category };
-  const normalizedName = normalizeCategoryName(safeCategory.name);
-
-  safeCategory.name = normalizedName;
-
-  if (!safeCategory.image || safeCategory.image.includes('/images/') || safeCategory.image.includes('placehold')) {
-    safeCategory.image = getCategoryImage(normalizedName);
-  }
-
-  return safeCategory;
-}
-
-function normalizeProduct(product) {
-  const safeProduct = { ...product };
-  const productName = String(safeProduct.name || '').trim();
-  const fallbackImage = getProductImageByName(productName) || getProductImageByName(safeProduct.name);
-
-  if (!safeProduct.image || safeProduct.image.includes('/images/') || safeProduct.image.includes('placehold')) {
-    safeProduct.image = fallbackImage;
-  }
-
-  if (typeof safeProduct.image === 'string' && !safeProduct.image.startsWith('http')) {
-    safeProduct.image = fallbackImage;
-  }
-
-  const images = Array.isArray(safeProduct.images) ? safeProduct.images : [];
-  const normalizedImages = images
-    .map((image) => {
-      if (typeof image !== 'string' || !image.startsWith('http')) {
-        return safeProduct.image;
-      }
-
-      return image;
-    })
-    .filter(Boolean);
-
-  safeProduct.images = normalizedImages.length ? normalizedImages : [safeProduct.image];
-
-  return safeProduct;
+  return imageMap[String(name || '')] || imageMap['Denim Jacket'];
 }
 
 function initializeAppData() {
-  const rawProducts = getData('products', sampleProducts);
-  const rawCategories = getData('categories', sampleCategories);
-
-  const normalizedCategories = Array.isArray(rawCategories) && rawCategories.length
-    ? rawCategories.map(normalizeCategory)
-    : sampleCategories.map(normalizeCategory);
-
-  const normalizedProducts = Array.isArray(rawProducts) && rawProducts.length
-    ? rawProducts.map(normalizeProduct)
-    : sampleProducts.map(normalizeProduct);
-
-  const categoriesNeedSave = JSON.stringify(rawCategories) !== JSON.stringify(normalizedCategories);
-  const productsNeedSave = JSON.stringify(rawProducts) !== JSON.stringify(normalizedProducts);
-
-  if (categoriesNeedSave) {
-    saveData('categories', normalizedCategories);
-  }
-
-  if (productsNeedSave) {
-    saveData('products', normalizedProducts);
-  }
-
-  const adminUser = getData('admin', null);
-  if (!adminUser) {
-    saveData('admin', {
-      username: 'admin',
-      password: '123456',
-    });
-  }
-
-  if (!localStorage.getItem('app_initialized')) {
-    localStorage.setItem('app_initialized', 'true');
-  }
+  return staticCatalog;
 }

@@ -1,36 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   initializeAppData();
   setupMobileMenu();
-  syncNavigationRole();
   renderHomePageContent();
   showToast();
 });
-
-function setAdminRole(isAdmin) {
-  const nextRole = isAdmin ? 'admin' : 'user';
-  localStorage.setItem('userRole', nextRole);
-  localStorage.setItem('isAdminLoggedIn', String(Boolean(isAdmin)));
-}
-
-function getCurrentUserRole() {
-  const storedRole = localStorage.getItem('userRole');
-  return storedRole === 'admin' || localStorage.getItem('isAdminLoggedIn') === 'true' ? 'admin' : 'user';
-}
-
-function syncNavigationRole() {
-  const isAdmin = getCurrentUserRole() === 'admin';
-  const adminLink = document.querySelector('.main-nav a[href="login.html"], .main-nav a[href="admin.html"]');
-
-  if (adminLink) {
-    adminLink.textContent = isAdmin ? 'Dashboard' : 'Admin/Login';
-    adminLink.href = isAdmin ? 'admin.html' : 'login.html';
-  }
-
-  const logoutButton = document.getElementById('logout-btn');
-  if (logoutButton) {
-    logoutButton.style.display = isAdmin ? 'inline-flex' : 'none';
-  }
-}
 
 function setupMobileMenu() {
   const toggleButton = document.querySelector('.menu-toggle');
@@ -191,21 +164,9 @@ function getAdminUser() {
 }
 
 function requireAdmin() {
-  const adminUser = getAdminUser();
-  const isLoggedIn = getCurrentUserRole() === 'admin';
-
-  if (!isLoggedIn || !adminUser) {
-    setAdminRole(false);
-    window.location.href = 'login.html';
-    return false;
-  }
-
   return true;
 }
 
 function logoutAdmin() {
-  setAdminRole(false);
-  localStorage.removeItem('isAdminLoggedIn');
-  localStorage.removeItem('userRole');
   window.location.href = 'login.html';
 }

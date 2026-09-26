@@ -1,18 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
   initializeAppData();
 
-  if (!requireAdmin()) {
-    return;
-  }
-
   setupAdminDashboard();
   renderDashboardStats();
   renderProductsTable();
   renderCategoryList();
-  setupProductForm();
-  setupCategoryForm();
+  disableAdminMutations();
   setupLogoutButton();
 });
+
+function disableAdminMutations() {
+  const forms = document.querySelectorAll('form');
+  forms.forEach((form) => {
+    const inputs = form.querySelectorAll('input, textarea, select, button');
+    inputs.forEach((input) => {
+      input.disabled = true;
+    });
+  });
+
+  const logoutButton = document.getElementById('logout-btn');
+  if (logoutButton) {
+    logoutButton.disabled = false;
+    logoutButton.title = 'Read-only display mode';
+  }
+}
 
 function setupAdminDashboard() {
   const productCategorySelect = document.getElementById('product-category');
@@ -65,8 +76,7 @@ function renderProductsTable() {
           <td>${formatPrice(product.price)}</td>
           <td>${status}</td>
           <td class="action-cell">
-            <button type="button" class="action-btn edit" data-product-id="${product.id}">Edit</button>
-            <button type="button" class="action-btn delete" data-product-id="${product.id}">Delete</button>
+            <span class="muted-text">Read-only</span>
           </td>
         </tr>
       `;
@@ -88,14 +98,6 @@ function renderProductsTable() {
       <tbody>${rows}</tbody>
     </table>
   `;
-
-  container.querySelectorAll('.edit').forEach((button) => {
-    button.addEventListener('click', () => populateProductForm(Number(button.dataset.productId)));
-  });
-
-  container.querySelectorAll('.delete').forEach((button) => {
-    button.addEventListener('click', () => deleteProduct(Number(button.dataset.productId)));
-  });
 }
 
 function renderCategoryList() {
@@ -120,26 +122,12 @@ function renderCategoryList() {
             <strong>${category.name}</strong>
           </div>
           <div class="category-actions">
-            <button type="button" class="action-btn edit" data-category-id="${category.id}">Edit</button>
-            <button type="button" class="action-btn delete" data-category-id="${category.id}">Delete</button>
+            <span class="muted-text">Read-only</span>
           </div>
         </div>
       `
     )
     .join('');
-
-  container.querySelectorAll('[data-category-id]').forEach((button) => {
-    const type = button.classList.contains('edit') ? 'edit' : 'delete';
-    const categoryId = Number(button.dataset.categoryId);
-
-    button.addEventListener('click', () => {
-      if (type === 'edit') {
-        populateCategoryForm(categoryId);
-      } else {
-        deleteCategory(categoryId);
-      }
-    });
-  });
 }
 
 function setupProductForm() {
