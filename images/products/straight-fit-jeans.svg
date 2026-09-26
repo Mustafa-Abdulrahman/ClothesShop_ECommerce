@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <defs>
+    <linearGradient id="jeansGrad" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#7aa0d4"/>
+      <stop offset="100%" stop-color="#263d57"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#edf3f7"/>
+  <rect x="250" y="120" width="300" height="760" rx="90" fill="url(#jeansGrad)"/>
+  <rect x="300" y="170" width="200" height="660" rx="24" fill="rgba(255,255,255,0.14)"/>
+  <text x="400" y="520" text-anchor="middle" fill="#ffffff" font-size="42" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Jeans</text>
+</svg>

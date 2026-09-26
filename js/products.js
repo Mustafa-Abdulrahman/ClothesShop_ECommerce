@@ -22,7 +22,12 @@ function initializeProductPage() {
   const categoryId = params.get('category');
 
   if (categoryId && categoryId !== 'all') {
-    categoryFilter.value = categoryId;
+    const matchedCategory = getCategories().find((category) => {
+      const normalizedValue = decodeURIComponent(categoryId).trim();
+      return String(category.id) === normalizedValue || category.name.toLowerCase() === normalizedValue.toLowerCase();
+    });
+
+    categoryFilter.value = matchedCategory ? String(matchedCategory.id) : 'all';
   }
 
   renderProducts();

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="#f8efe8"/>
+  <path d="M240 200 L560 200 L640 820 L160 820 Z" fill="#f1c4a2"/>
+  <path d="M270 230 L400 80 L530 230 L580 820 L220 820 Z" fill="#e39d78" opacity="0.8"/>
+  <text x="400" y="520" text-anchor="middle" fill="#ffffff" font-size="42" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Summer Dress</text>
+</svg>

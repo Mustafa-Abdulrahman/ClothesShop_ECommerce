@@ -1,5 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   initializeAppData();
+
+  if (getCurrentUserRole() === 'admin') {
+    window.location.href = 'admin.html';
+    return;
+  }
+
   setupLoginForm();
 });
 
@@ -22,7 +28,7 @@ function setupLoginForm() {
     }
 
     if (username === admin.username && password === admin.password) {
-      localStorage.setItem('isAdminLoggedIn', 'true');
+      setAdminRole(true);
       window.location.href = 'admin.html';
       return;
     }

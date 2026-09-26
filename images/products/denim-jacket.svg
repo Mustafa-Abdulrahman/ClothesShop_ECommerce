@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <defs>
+    <linearGradient id="bgJacket" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#8ca6d7"/>
+      <stop offset="100%" stop-color="#35557a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#ecf1f5"/>
+  <rect x="210" y="120" width="380" height="760" rx="90" fill="url(#bgJacket)"/>
+  <rect x="270" y="190" width="260" height="620" rx="40" fill="rgba(255,255,255,0.18)"/>
+  <text x="400" y="520" text-anchor="middle" fill="#ffffff" font-size="44" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Denim Jacket</text>
+</svg>

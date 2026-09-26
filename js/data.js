@@ -1,10 +1,34 @@
 const sampleCategories = [
-  { id: 1, name: 'T-Shirts', image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80' },
-  { id: 2, name: 'Shirts', image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80' },
-  { id: 3, name: 'Jeans', image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=80' },
-  { id: 4, name: 'Jackets', image: 'https://images.unsplash.com/photo-1522092789861-0158f8b5d2d0?auto=format&fit=crop&w=900&q=80' },
-  { id: 5, name: 'Dresses', image: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80' },
-  { id: 6, name: 'Accessories', image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=80' },
+  {
+    id: 1,
+    name: 'T-Shirts',
+    image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    id: 2,
+    name: 'Shirts',
+    image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    id: 3,
+    name: 'Jeans',
+    image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    id: 4,
+    name: 'Jackets',
+    image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    id: 5,
+    name: 'Dresses',
+    image: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    id: 6,
+    name: 'Accessories',
+    image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=80',
+  },
 ];
 
 const sampleProducts = [
@@ -60,8 +84,8 @@ const sampleProducts = [
     price: 95,
     sku: 'JKT-DNM-004',
     categoryId: 4,
-    image: 'https://images.unsplash.com/photo-1522092789861-0158f8b5d2d0?auto=format&fit=crop&w=900&q=80',
-    images: ['https://images.unsplash.com/photo-1522092789861-0158f8b5d2d0?auto=format&fit=crop&w=900&q=80'],
+    image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80',
+    images: ['https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80'],
     sizes: ['M', 'L', 'XL'],
     colors: ['Denim Blue'],
     quantity: 8,
