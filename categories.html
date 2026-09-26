@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Details | Veloura</title>
+    <title>Categories | Veloura</title>
+    <meta
+      name="description"
+      content="Browse fashion categories at Veloura and explore curated looks for every occasion."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,18 +29,27 @@
         <nav class="main-nav" id="main-nav" aria-label="Main navigation">
           <a href="index.html">Home</a>
           <a href="products.html">Products</a>
-          <a href="categories.html">Categories</a>
-          <a href="about.html">About</a>
+          <a href="categories.html" class="active">Categories</a>
+          <a href="index.html#about">About</a>
           <a href="login.html">Admin/Login</a>
         </nav>
         <a class="nav-cta" href="products.html">Shop Now</a>
       </div>
     </header>
 
-    <main class="detail-page-main">
-      <div class="container">
-        <div id="product-detail" class="product-detail-shell"></div>
-      </div>
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow">Our collections</p>
+          <h1>Shop by Category</h1>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div id="categories-grid" class="category-grid"></div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -48,7 +61,6 @@
           <a href="index.html">Home</a>
           <a href="products.html">Products</a>
           <a href="categories.html">Categories</a>
-          <a href="about.html">About</a>
           <a href="login.html">Admin</a>
         </div>
       </div>
@@ -59,6 +71,6 @@
     <script src="js/data.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/product-details.js"></script>
+    <script src="js/categories.js"></script>
   </body>
 </html>
